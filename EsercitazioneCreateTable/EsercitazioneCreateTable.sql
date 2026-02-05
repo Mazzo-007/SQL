@@ -20,7 +20,7 @@ CREATE TABLE if not exists Libri(
 CREATE TABLE if not exists Prestiti(
 	ID_prestito varchar(5) PRIMARY KEY,
     Data_prestito date NOT NULL, 
-    Data_restituzione date,
+    Data_restituzione date CHECK(Data_restituzione>=Data_prestito),
     ID_utente varchar(5),
     ID_libro varchar(5),
     
