@@ -1,0 +1,49 @@
+Una piccola biblioteca digitale vuole organizzare i dati relativi a: utenti registrati libri disponibili prestiti dei libri
+Il database deve garantire integrità e coerenza tramite vincoli.
+
+1. Utenti
+L’entità Utenti rappresenta le persone registrate alla biblioteca digitale.
+id_utente: identificatore univoco dell’utente (PK)
+nome: nome dell’utente (NOT NULL)
+cognome: cognome dell’utente (NOT NULL)
+email: indirizzo email dell’utente (NOT NULL, UNIQUE)
+eta: età dell’utente (CHECK: deve essere = 14)
+
+Vincoli:
+Ogni utente deve avere un indirizzo email univoco.
+Non sono ammessi utenti con età inferiore a 14 anni.
+
+2. Libri
+L’entità Libri rappresenta i volumi disponibili nel catalogo.
+id_libro: identificatore univoco del libro (PK)
+titolo: titolo del libro (NOT NULL)
+autore: autore del libro (NOT NULL)
+isbn: codice ISBN del libro (UNIQUE)
+anno_pubblicazione: anno di pubblicazione (CHECK: = 1500)
+
+Vincoli:
+L’ISBN, se presente, deve essere univoco.
+Non sono ammessi libri con anno di pubblicazione precedente al 1500.
+
+3. Prestiti
+L’entità Prestiti registra i prestiti dei libri agli utenti.
+id_prestito: identificatore univoco del prestito (PK)
+id_utente: riferimento all’utente che effettua il prestito (FK ? Utenti)
+id_libro: riferimento al libro prestato (FK ? Libri)
+data_prestito: data in cui il prestito viene effettuato (NOT NULL)
+data_restituzione: data di restituzione (può essere NULL)
+
+Vincoli:
+Un prestito deve riferirsi a un utente esistente.
+Un prestito deve riferirsi a un libro esistente.
+La data di restituzione, se presente, deve essere maggiore o uguale alla data del prestito.
+
+Relazioni
+Utenti – Prestiti
+Relazione 1:N
+Un utente può avere più prestiti.
+Ogni prestito è associato a un solo utente.
+Libri – Prestiti
+Relazione 1:N
+Un libro può essere prestato più volte nel tempo.
+Ogni prestito fa riferimento a un solo libro.
