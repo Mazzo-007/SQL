@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>AggiungiUtenti</title>
+</head>
+<body>
+    <h1>Inserimento Tuple DB</h1>
+    <hr>
+    <h3>Inserisci i dati nella form per aggiungere utenti sul database</h3>
+    <form action="inserisci.php" method="post">
+        <label for="id_utente">Id_utente:</label>
+        <input type="text" name="id_utente" id="id_utente" maxlength="5" required>
+        <label for="nome">Nome:</label>
+        <input type="text" name="nome" id="nome" maxlength="50" required>
+        <label for="cognome">Cognome:</label>
+        <input type="text" name="cognome" id="cognome" maxlength="50" required>
+        <label for="e-mail">E-Mail:</label>
+        <input type="text" name="e-mail" id="e-mail" maxlength="254" required>
+        <label for="eta">Età:</label>
+        <input type="number" name="eta" id="eta" min="14" required>
+        <hr>
+        <input type="submit" value="Aggiungi Utente">
+    </form>
+</body>
+</html>

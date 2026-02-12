@@ -3,10 +3,10 @@ USE EsercitazioneCreateTable;
 
 CREATE TABLE if not exists Utenti(
 	ID_utente varchar(5) PRIMARY KEY,
-    Nome varchar(25) NOT NULL,
-    Cognome varchar(25) NOT NULL,
-    Mail varchar(40) NOT NULL UNIQUE,
-    Età int NOT NULL CHECK(Età>=14)
+    Nome varchar(50) NOT NULL,
+    Cognome varchar(50) NOT NULL,
+    Mail varchar(254) NOT NULL UNIQUE,
+    Eta int NOT NULL CHECK(Eta>=14)
 );
 
 CREATE TABLE if not exists Libri(
@@ -33,7 +33,7 @@ CREATE TABLE if not exists Prestiti(
         REFERENCES Libri(ID_libro)
 );
 
-INSERT INTO Utenti (ID_utente, Nome, Cognome, Mail, Età) VALUES
+INSERT INTO Utenti (ID_utente, Nome, Cognome, Mail, Eta) VALUES
 ("AH562", "Luca", "Mazzoni", "luca.mazzoni@gmail.com", 18),
 ("BR104", "Giulia", "Rossi", "giulia.rossi@gmail.com", 22),
 ("CT778", "Marco", "Bianchi", "marco.bianchi@gmail.com", 30),
